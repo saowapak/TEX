@@ -45,37 +45,37 @@ namespace TAX5GROUP
                 total = 0;//ลดหย่อนเกินเงินเดือน มันจะติดลบก็จะให้มีค่าเป็น 0
             }
             sumsutitexbox.Text = total.ToString();//show รายได้ให้ผู้ใช้ดู
-            if (total >= 0 && total <= 150000)
+            if (total > 5000000)
+            {
+                total = (total *35) /100;
+            }
+            else if (total > 2000000)
+            {
+                total = (total *30)/100;
+            }
+            else if (total > 1000000)
+            {
+                total = (total *25)/100;
+            }
+            else if (total > 750000)
+            {
+                total = (total *15)/100;
+            }
+            else if (total > 500000)
+            {
+                total = (total* 20)/100;
+            }
+            else if (total > 300000)
+            {
+                total = (total*25)/100;
+            }
+            else if (total > 150000)
+            {
+                total = (total *30)/100;
+            }
+            else if (total <=150000)
             {
                 total = 0;
-            }
-            else if (total > 150000 && total <= 300000)
-            {
-                total = (total - 150000) * 0.05;
-            }
-            else if (total > 300000 && total <= 500000)
-            {
-                total = (total - 300000) * 0.1 + 7500;
-            }
-            else if (total > 500000 && total <= 750000)
-            {
-                total = (total - 500000) * 0.15 + 27500;
-            }
-            else if (total > 750000 && total <= 1000000)
-            {
-                total = (total - 750000) * 0.2 + 65000;
-            }
-            else if (total > 1000000 && total <= 2000000)
-            {
-                total = (total - 1000000) * 0.25 + 115000;
-            }
-            else if (total > 2000000 && total <= 5000000)
-            {
-                total = (total - 2000000) * 0.3 + 365000;
-            }
-            else if (total > 5000000)
-            {
-                total = (total - 5000000) * 0.35 + 1265000;
             }
             sumpaytexbox.Text = total.ToString();//แสดงภาษีที่ต้องจ่าย
         }
